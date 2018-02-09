@@ -48,6 +48,7 @@ namespace Capstone.Classes
             }
             catch (IOException e)
             {
+                Console.WriteLine("You need to input a correct path.");
                 Console.WriteLine(e.Message);
             }
 

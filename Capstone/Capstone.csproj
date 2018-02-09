@@ -47,11 +47,17 @@
     <Compile Include="Classes\Chip.cs" />
     <Compile Include="Classes\Drink.cs" />
     <Compile Include="Classes\Gum.cs" />
+    <Compile Include="Classes\InsufficientFundsException.cs" />
+    <Compile Include="Classes\InvalidSlotException.cs" />
     <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\Menu.cs" />
+    <Compile Include="Classes\OutOfStockException.cs" />
+    <Compile Include="Classes\Purchase Log.cs" />
     <Compile Include="Classes\Slot.cs" />
     <Compile Include="Classes\Stock.cs" />
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
+    <Compile Include="Classes\VendingMachineExceptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
