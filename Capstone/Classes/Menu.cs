@@ -72,7 +72,7 @@ namespace Capstone.Classes
                             Console.WriteLine();
                             Console.Write("Do you wish to deposit any more? (Y/N)");
                             input = Console.ReadLine();
-                            if (input == "N" || input == "n")
+                            if (input != "Y" && input != "y")
                             {
                                 break;
                             }
@@ -101,7 +101,7 @@ namespace Capstone.Classes
                         }
                         else if (!HasEnoughMoney(input))
                         {
-                            Console.WriteLine("You don't have enough money.");
+                            Console.WriteLine($"You don't have enough money. Your balance is { vm.Trans.BalanceInDollars.ToString("C")}.");
                             Console.WriteLine();
                         }
                         else if (!IsInStock(input))
