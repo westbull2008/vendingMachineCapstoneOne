@@ -87,9 +87,13 @@ namespace Capstone.Classes
                         Console.WriteLine();
                         DisplayItems();
                         Console.WriteLine();
-                        Console.Write("Please select your purchase: ");
+                        Console.Write("Please select your purchase, or press (Q) to go back: ");
                         input = Console.ReadLine();
                         Console.WriteLine();
+                        if (input == "Q" || input == "q")
+                        {
+                            break;
+                        }
                         if (!IsLocationValid(input))
                         {
                             Console.WriteLine("Your location is invalid.");
