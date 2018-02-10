@@ -32,5 +32,9 @@ namespace Capstone.Classes
                 Items.Add(item);
             }
         }
+        public void RemoveItem()
+        {
+            Items.RemoveAt(0);
+        }
     }
 }

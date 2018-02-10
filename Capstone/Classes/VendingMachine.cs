@@ -9,7 +9,8 @@ namespace Capstone.Classes
     public class VendingMachine
     {
         List<Item> stockList = new List<Item>();
-        Transaction trans = new Transaction();
+        PurchaseLog log = new PurchaseLog("Log.txt");
+        public Transaction Trans { get; set; } = new Transaction();
 
         static string[] locations =
         {
@@ -23,15 +24,21 @@ namespace Capstone.Classes
 
         public List<Item> PurchasedItems { get; set; } = new List<Item>(); // clear list afterwards
 
+
+
         public void FeedMoney(int dollars)
         {
-            trans.MoneyGiven += 100 * dollars;
+            Trans.MoneyGiven += 100 * dollars;
+            log.PrintLog(log.PrintFeedMoney(dollars, Trans.BalanceInDollars));// feedmoney log
         }
 
-        public void GetItem(string location)
+        public void PurchaseItem(string location)
         {
-            PurchasedItems.Add(Slots[location].Items[0]);
-            trans.TotalPurchasePrice += Slots[location].Items[0].Price;
+            PurchasedItems.Add(GetItemFromSlot(location));
+            Trans.TotalPurchasePrice += 100 * GetItemFromSlot(location).Price;
+            Slots[location].RemoveItem();
+            log.PrintLog(log.PrintPurchase(GetItemFromSlot(location).Name, GetItemFromSlot(location).Price, Trans.BalanceInDollars));// purchase log
+
         }
 
         public void MakeSlots()
@@ -64,5 +71,22 @@ namespace Capstone.Classes
         {
             return Slots[location].Items[0];
         }
+
+        public string GetItemInfo(string location)
+        {
+            string info = "";
+            if (!Slots[location].IsEmpty)
+            {
+                info = $"[{location}] {Slots[location].Items[0].Name} {Slots[location].Items[0].Price} ({Slots[location].AmountOfItems})";
+            }
+            else
+            {
+                info = $"[{location}] "/*{Slots[location].Items[0].Name} {Slots[location].Items[0].Price}?*/ + "(SOLD OUT!!!)";
+
+            }
+
+            return info;
+        }
+        
     }
 }

@@ -8,7 +8,11 @@ namespace Capstone.Classes
 {
     public class Transaction
     {
-        public decimal Balance { get => MoneyGiven - TotalPurchasePrice; set { } } // amount in pennies 
+        PurchaseLog log = new PurchaseLog("Log.txt");
+
+        public decimal Balance { get => MoneyGiven - TotalPurchasePrice; set { } } // amount in pennies
+
+        public decimal BalanceInDollars { get => Balance / 100; }
 
         public string ChangeGiven { get; set; }
 
@@ -19,6 +23,8 @@ namespace Capstone.Classes
         public Transaction()
         {
         }
+
+        
 
         public void MakeChange()
         {
@@ -50,6 +56,7 @@ namespace Capstone.Classes
             }
 
             ChangeGiven = change;
+            log.PrintLog(log.PrintChange(BalanceInDollars));// Change log
         }
 
         public void FinishTransaction()

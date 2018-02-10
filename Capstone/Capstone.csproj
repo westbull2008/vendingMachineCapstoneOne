@@ -48,6 +48,8 @@
     <Compile Include="Classes\Drink.cs" />
     <Compile Include="Classes\Gum.cs" />
     <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\Menu.cs" />
+    <Compile Include="Classes\Purchase Log.cs" />
     <Compile Include="Classes\Slot.cs" />
     <Compile Include="Classes\Stock.cs" />
     <Compile Include="Classes\Transaction.cs" />
@@ -59,9 +61,7 @@
     <None Include="App.config" />
     <None Include="Stock.csv" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\text\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
