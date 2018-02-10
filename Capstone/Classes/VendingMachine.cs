@@ -36,9 +36,8 @@ namespace Capstone.Classes
         {
             PurchasedItems.Add(GetItemFromSlot(location));
             Trans.TotalPurchasePrice += 100 * GetItemFromSlot(location).Price;
-            Slots[location].RemoveItem();
             log.PrintLog(log.PrintPurchase(GetItemFromSlot(location).Name, GetItemFromSlot(location).Price, Trans.BalanceInDollars));// purchase log
-
+            Slots[location].RemoveItem();
         }
 
         public void MakeSlots()
@@ -77,12 +76,23 @@ namespace Capstone.Classes
             string info = "";
             if (!Slots[location].IsEmpty)
             {
-                info = $"[{location}] {Slots[location].Items[0].Name} {Slots[location].Items[0].Price} ({Slots[location].AmountOfItems})";
+                if (GetItemFromSlot(location).Name.Length < 10)
+                {
+                    info = $"[{location}] -- {Slots[location].Items[0].Price.ToString("C")} {Slots[location].Items[0].Name}\t\t\t({Slots[location].AmountOfItems})";
+                }
+                else if (GetItemFromSlot(location).Name.Length >= 9 && GetItemFromSlot(location).Name.Length < 16)
+                {
+                    info = $"[{location}] -- {Slots[location].Items[0].Price.ToString("C")} {Slots[location].Items[0].Name}\t\t({Slots[location].AmountOfItems})";
+                }
+                else
+                {
+                info = $"[{location}] -- {Slots[location].Items[0].Price.ToString("C")} {Slots[location].Items[0].Name}\t({Slots[location].AmountOfItems})";
+                }
             }
             else
             {
-                info = $"[{location}] "/*{Slots[location].Items[0].Name} {Slots[location].Items[0].Price}?*/ + "(SOLD OUT!!!)";
-
+                info = $"[{location}] -- <<<SOLD OUT>>>";
+                
             }
 
             return info;

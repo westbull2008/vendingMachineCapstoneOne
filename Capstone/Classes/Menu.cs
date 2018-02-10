@@ -31,13 +31,11 @@ namespace Capstone.Classes
 
                 if (input == "1")
                 {
-                    Console.WriteLine();
                     DisplayItems();
                     Console.WriteLine();
                 }
                 else if (input == "2")
                 {
-                    Console.WriteLine();
                     Purchase();
                     break;
                 }
@@ -62,20 +60,16 @@ namespace Capstone.Classes
                 {
                     while (true)
                     {
-                        Console.WriteLine();
                         Console.WriteLine("Please insert a bill (we accept $1, $2, $5, or $10)");
                         string deposit = Console.ReadLine();
                         if (IsWholeDollar(deposit))
                         {
                             vm.FeedMoney(int.Parse(deposit));
-                            Console.WriteLine(vm.Trans.BalanceInDollars.ToString("C"));
                             Console.WriteLine();
-                            Console.Write("Do you wish to deposit any more? (Y/N)");
-                            input = Console.ReadLine();
-                            if (input != "Y" && input != "y")
-                            {
-                                break;
-                            }
+                            Console.WriteLine($"Balance: {vm.Trans.BalanceInDollars.ToString("C")}");
+                            Console.WriteLine();
+
+                            break;
                         }
 
                     }
@@ -94,14 +88,9 @@ namespace Capstone.Classes
                         {
                             break;
                         }
-                        if (!IsLocationValid(input))
+                        else if (!IsLocationValid(input))
                         {
                             Console.WriteLine("Your location is invalid.");
-                            Console.WriteLine();
-                        }
-                        else if (!HasEnoughMoney(input))
-                        {
-                            Console.WriteLine($"You don't have enough money. Your balance is { vm.Trans.BalanceInDollars.ToString("C")}.");
                             Console.WriteLine();
                         }
                         else if (!IsInStock(input))
@@ -109,6 +98,12 @@ namespace Capstone.Classes
                             Console.WriteLine("The item is out of stock.");
                             Console.WriteLine();
                         }
+                        else if (!HasEnoughMoney(input))
+                        {
+                            Console.WriteLine($"You don't have enough money. Your balance is { vm.Trans.BalanceInDollars.ToString("C")}.");
+                            Console.WriteLine();
+                        }
+                       
                         else
                         {
                             vm.PurchaseItem(input);
@@ -139,12 +134,12 @@ namespace Capstone.Classes
 
         private bool IsInStock(string location)
         {
-            if (vm.Slots[location].AmountOfItems == 0)
+            if (vm.Slots[location].IsEmpty)
             {
                 return false;
             }
-            return true;
 
+            return true;
         }
 
         public void DisplayItems()
