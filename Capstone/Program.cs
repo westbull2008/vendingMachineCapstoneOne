@@ -16,7 +16,6 @@ namespace Capstone
             Menu menu = new Menu();
             // Displaying new menu
             menu.Display();
-
         }
     }
 }
