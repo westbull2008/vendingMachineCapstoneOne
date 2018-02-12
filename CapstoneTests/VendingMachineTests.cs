@@ -9,6 +9,7 @@ namespace CapstoneTests
     public class VendingMachineTests
     {
         [TestMethod]
+        // ensures slots are created properly from text file
         public void SlotsAreCreatedProperly()
         {
             VendingMachine machine = new VendingMachine("vendingmachine.csv");
@@ -20,6 +21,7 @@ namespace CapstoneTests
         }
 
         [TestMethod]
+        // checks correct price is at slot location
         public void PriceOfItemInSlot()
         {
             VendingMachine machine = new VendingMachine("vendingmachine.csv");

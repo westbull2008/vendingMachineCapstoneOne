@@ -8,7 +8,7 @@ namespace Capstone.Classes
 {
     public class Chip : Item
     {
-        // creates Chip property with name and price
+        // Chip constructor, creates Chip with name and price, using Item constructor
         public Chip(string name, decimal price) : base(name, price)
         {
         }

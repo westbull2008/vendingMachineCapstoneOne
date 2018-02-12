@@ -9,6 +9,7 @@ namespace CapstoneTests
     public class StockTests
     {
         [TestMethod]
+        // checks that stock list is created from text file properly
         public void StockListIsProperlyCreatedFromTextFile()
         {
             Stock stock = new Stock("vendingmachine.csv");

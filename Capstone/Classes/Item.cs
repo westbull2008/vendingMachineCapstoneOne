@@ -8,19 +8,19 @@ namespace Capstone.Classes
 {
     public abstract class Item
     {
-        // defines name property
+        // sets Name property
         public string Name { get; set; }
 
-        //defines price property
+        //sets Price property
         public decimal Price { get; set; }
 
-        // default item constructor
+        // default item constructor, no parameters
         public Item()
         {
 
         }
 
-        //Constructor that sets Item with name and price
+        //Constructor that sets Item with name and price, calling above properties
         public Item(string name, decimal price)
         {
             Name = name;

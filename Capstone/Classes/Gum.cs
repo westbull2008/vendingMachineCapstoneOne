@@ -8,7 +8,7 @@ namespace Capstone.Classes
 {
     public class Gum : Item
     {
-        // creates Gum property with name and price
+        // Gum constructor, creates Gum with name and price, using Item constructor
         public Gum(string name, decimal price) : base(name, price)
         {
         }

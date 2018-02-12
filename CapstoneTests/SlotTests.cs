@@ -9,6 +9,7 @@ namespace CapstoneTests
     public class SlotTests
     {
         [TestMethod]
+        // Tests if slot stops adding at five
         public void AddItemOnlyAddsFive()
         {
             Slot slot = new Slot("A1");
@@ -23,6 +24,7 @@ namespace CapstoneTests
         }
 
         [TestMethod]
+        // tests that correct price is at slot location
         public void PriceOfSlotIsEqualToItemPrice()
         {
             Slot slot = new Slot("A1");

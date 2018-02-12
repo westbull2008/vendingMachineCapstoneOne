@@ -9,25 +9,32 @@ namespace Capstone.Classes
 {
     public class Stock
     {
+        // A property where we get the input file path 
         public string Path { get; set; }
 
+        // Stock constructor which sets up the Stock path
         public Stock(string path)
         {
             Path = path;
         }
 
+        // A method creating an Item list of stock
         public List<Item> CreateStockList()
         {
+            // Creates the individual items list of Items
             List<Item> items = new List<Item>();
 
             try
             {
+                //Getting StreamReader to read in the information from the file path
                 using (StreamReader sr = new StreamReader(Path))
                 {
                     while (!sr.EndOfStream)
                     {
+                        // Reads lines from path via StreamReader
                         string line = sr.ReadLine();
 
+                        // Switch which sorts items via Case of Slot locations
                         switch (line[0])
                         {
                             case 'A':
@@ -46,6 +53,7 @@ namespace Capstone.Classes
                     }
                 }
             }
+            // Setting the exception if an incorrect path is entered.
             catch (IOException e)
             {
                 Console.WriteLine("You need to input a correct path.");
@@ -56,12 +64,16 @@ namespace Capstone.Classes
             return items;
         }
 
+        // Method invoking Chip class to create a chip item
         private Chip CreateChip(string line)
         {
+            // creating a string from input file, splitting at |
             string[] items = line.Split('|');
+            // naming product from position 1 in items string
             string name = items[1];
+            // setting price by parsing string[price] from string position 2
             decimal price = decimal.Parse(items[2]);
-
+            //creating a new Chip item called chip, with a name and a price.
             Chip chip = new Chip(name, price);
 
             return chip;

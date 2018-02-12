@@ -8,6 +8,7 @@ namespace CapstoneTests
     public class TransactionTests
     {
         [TestMethod]
+        // checks that correct change is given
         public void MakeChangeGivesCorrectChange()
         {
             Transaction trans = new Transaction();
