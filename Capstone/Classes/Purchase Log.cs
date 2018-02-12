@@ -28,7 +28,7 @@ namespace Capstone.Classes
                 // invoking the StreamWriter to write to outside path
                 using (StreamWriter sw = new StreamWriter(Path, true))
                 {
-                    // writes the line from the log to the outside path
+                    // writes the line to the log, which is located at an outside path
                     sw.WriteLine(line);
                 }
             }

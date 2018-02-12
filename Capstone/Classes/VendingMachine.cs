@@ -15,7 +15,7 @@ namespace Capstone.Classes
         // creating a PurchaseLog called log, with name Log.txt
         PurchaseLog log = new PurchaseLog("Log.txt");
         
-        // creating a new Transaction property?? called Trans
+        // creating a new Transaction called Trans
         public Transaction Trans { get; set; } = new Transaction();
 
         // Setting location names of slots into a string
@@ -30,11 +30,10 @@ namespace Capstone.Classes
         // Creating a dictionary called Slots from Slot class, with a get and set
         public Dictionary<string, Slot> Slots { get; set; } = new Dictionary<string, Slot>();
         
-        // Creating a list of Items called PurchasedItems, which gets cleared afterwards
+        // Creating a list of Items called PurchasedItems, 
         public List<Item> PurchasedItems { get; set; } = new List<Item>(); // clear list afterwards
-
-
-        //Creating a method called FeedMoney, with int parameter dollars, to enter moneh
+        
+        //Creating a method called FeedMoney, with int parameter dollars, to enter money
         public void FeedMoney(int dollars)
         {
             // Setting MoneyGiven in Trans to a value in pennies for calculation
@@ -43,7 +42,7 @@ namespace Capstone.Classes
             // Sending FeedMoney transaction details to purchase log.
             log.PrintLog(log.PrintFeedMoney(dollars, Trans.BalanceInDollars));// feedmoney log
         }
-        // Creating a method called PurchaseItem, with a parameter including the slot location
+        // Creating a method called PurchaseItem, with a parameter of the slot location
         public void PurchaseItem(string location)
         {
             //Adding an item using GetItemFromSlot method to PurchasedItems
@@ -87,7 +86,7 @@ namespace Capstone.Classes
 
         }
 
-        // A method called StockSlots, using the parameters from stockList list
+        // A method called StockSlots, using the parameters from the stockList List
         public void StockSlots(List<Item> stockList)
         {
             // A for loop through the stockList list
@@ -111,7 +110,7 @@ namespace Capstone.Classes
             // Creating an empty string called info
             string info = "";
             
-            // A loop that's invoked if the slot location is not empty that prints out
+            // A loop that's invoked if the slot location is not empty that
             if (!Slots[location].IsEmpty)
             {
                 // The info printed out, including the location, item name, item price, and amount remaining

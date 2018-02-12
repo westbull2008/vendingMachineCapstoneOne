@@ -9,7 +9,7 @@ namespace Capstone.Classes
 {
     public class Stock
     {
-        // A property where we get the input file path 
+        // A property that says there is a path 
         public string Path { get; set; }
 
         // Stock constructor which sets up the Stock path
@@ -69,9 +69,9 @@ namespace Capstone.Classes
         {
             // creating a string from input file, splitting at |
             string[] items = line.Split('|');
-            // naming product from position 1 in items string
+            // the name is at index one in items string array
             string name = items[1];
-            // setting price by parsing string[price] from string position 2
+            // setting price by parsing string[price] at string array position 2
             decimal price = decimal.Parse(items[2]);
             //creating a new Chip item called chip, with a name and a price.
             Chip chip = new Chip(name, price);

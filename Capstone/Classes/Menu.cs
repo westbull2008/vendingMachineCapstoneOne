@@ -227,7 +227,7 @@ namespace Capstone.Classes
             // Otherwise deposit is valid
             return true;
         }
-        // Method to ensure slot location exists
+        // Method to ensure slot location entered is valid
         public bool IsLocationValid(string location)
         {
             if (!locations.Contains(location))

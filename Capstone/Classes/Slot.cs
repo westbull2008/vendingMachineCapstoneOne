@@ -11,7 +11,7 @@ namespace Capstone.Classes
         // Creates a new property which is a list of Items, from Item class
         public List<Item> Items { get; set; } = new List<Item>();
 
-        //A property considering the number of items
+        //A property considering the number of items; returns the count of the item list
         public int AmountOfItems { get => Items.Count; }
 
         // A property considering the location of the slots.
@@ -42,7 +42,7 @@ namespace Capstone.Classes
         }
         // A method which removes an item from the slot
         public void RemoveItem()
-        {   //Removes the item from the first slot ???
+        {   //Removes the item from the front of the slot
             Items.RemoveAt(0);
         }
     }

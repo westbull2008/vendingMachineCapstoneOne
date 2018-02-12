@@ -77,7 +77,7 @@ namespace Capstone.Classes
 
             // Setting the value of ChangeGiven method to change
             ChangeGiven = change;
-            log.PrintLog(log.PrintChange(BalanceInDollars));// Change log
+            log.PrintLog(log.PrintChange(BalanceInDollars));// Prints Change log
         }
 
         // Method to finish transaction
